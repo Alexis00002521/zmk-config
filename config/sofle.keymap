@@ -29,7 +29,7 @@
         // Encoder izquierdo: 3 clics = Encender/Apagar RGB
         left_enc_tap_dance: left_enc_tap_dance {
             compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
+            #sensor-binding-cells = <0>;
             tapping-term-ms = <300>;
             bindings = <&none>, <&none>, <&rgb_ug RGB_TOG>;
         };
