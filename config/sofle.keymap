@@ -16,13 +16,22 @@
 #define ADJUST 3
 
 / {
-    // Definición del Tap-Dance para el encoder (1 clic = Mute, 3 clics = Encender/Apagar Display)
+    // Definiciones de Tap-Dance para los encoders
     behaviors {
+        // Encoder derecho: 1 clic = Mute, 3 clics = Encender/Apagar Displays
         right_enc_tap_dance: right_enc_tap_dance {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
             bindings = <&kp C_MUTE>, <&kp C_MUTE>, <&ext_power EP_TOG>;
+        };
+
+        // Encoder izquierdo: 3 clics = Encender/Apagar RGB
+        left_enc_tap_dance: left_enc_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&none>, <&none>, <&rgb_ug RGB_TOG>;
         };
     };
 
@@ -54,7 +63,7 @@
                  &kp LGUI  &kp LALT  &kp LCTRL  &mo LOWER  &kp RET    &kp SPACE   &mo RAISE  &kp RCTRL &kp RALT  &right_enc_tap_dance
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&left_enc_tap_dance &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         lower_layer {
@@ -74,7 +83,7 @@
                     &trans    &trans      &trans    &trans     &trans &trans   &trans    &trans   &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&left_enc_tap_dance &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         raise_layer {
@@ -93,7 +102,7 @@
                         &trans       &trans       &trans       &trans        &trans &trans     &trans    &trans    &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&left_enc_tap_dance &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         adjust_layer {
@@ -111,6 +120,7 @@
 &none             &none           &none           &none           &none           &none            &rgb_ug RGB_TOG &none  &none &none &none &none &none &none
                                                   &none           &none           &none            &none           &none  &none &none &none &none &none
             >;
+            sensor-bindings = <&left_enc_tap_dance &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
     };
