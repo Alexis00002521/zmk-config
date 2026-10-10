@@ -31,7 +31,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&trans>, <&trans>, <&rgb_ug RGB_TOG>;
+            bindings = <&none>, <&none>, <&rgb_ug RGB_TOG>;
         };
     };
 
@@ -83,7 +83,7 @@
                     &trans    &trans     &trans    &trans    &trans &trans             &trans    &trans   &trans    &trans
             >;
 
-            sensor-bindings = <&left_enc_tap_dance &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         raise_layer {
@@ -102,7 +102,7 @@
                         &trans       &trans       &trans       &trans        &trans &trans        &trans    &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&left_enc_tap_dance &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         adjust_layer {
@@ -120,7 +120,7 @@
 &none             &none           &none           &none           &none           &none           &rgb_ug RGB_TOG &none   &none &none &none &none &none &none
                                                   &none           &none           &none           &none           &none   &none &none &none &none &none
             >;
-            sensor-bindings = <&left_enc_tap_dance &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
     };
